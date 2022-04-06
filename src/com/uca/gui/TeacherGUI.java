@@ -18,10 +18,10 @@ public class TeacherGUI {
 
         Map<String, Object> input = new HashMap<>();
 
-        input.put("Students", TeacherCore.getAllStudents());
+        input.put("students", TeacherCore.getAllStudents());
 
         Writer output = new StringWriter();
-        Template template = configuration.getTemplate("user/user.ftl");
+        Template template = configuration.getTemplate("teachers/students.ftl");
         template.setOutputEncoding("UTF-8");
         template.process(input, output);
 

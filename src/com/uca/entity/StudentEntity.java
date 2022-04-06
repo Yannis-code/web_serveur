@@ -18,7 +18,7 @@ public class StudentEntity extends UserEntity{
         return this.classroom;
     }
 
-    public void setClassroom(String classe){
+    public void setClassroom(String classroom){
         this.classroom = classroom;
     }
     
