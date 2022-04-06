@@ -4,22 +4,22 @@ import java.sql.Timestamp;
 
 public class StudentEntity extends UserEntity{
     private int id;
-    private String classe;
+    private String classroom;
 
-    public getId(){
+    public int getId(){
         return this.id;
     }
 
-    public setId(int id){
+    public void setId(int id){
         this.id = id;
     }
 
-    public getClasse(){
-        return this.classe;
+    public String getClassroom(){
+        return this.classroom;
     }
 
-    public setClasse(String classe){
-        this.classe = classe;
+    public void setClassroom(String classe){
+        this.classroom = classroom;
     }
     
 }

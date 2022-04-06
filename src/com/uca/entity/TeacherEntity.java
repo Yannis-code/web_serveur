@@ -6,19 +6,19 @@ public class TeacherEntity extends UserEntity{
     private String username;
     private int id;
 
-    public getId(){
+    public int getId(){
         return this.id;
     }
 
-    public setId(int id){
+    public void setId(int id){
         this.id = id;
     }
 
-    public getUsername(){
+    public String getUsername(){
         return this.username;
     }
 
-    public setId(String username){
+    public void setId(String username){
         this.username = username;
     }
     

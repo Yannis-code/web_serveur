@@ -1,6 +1,6 @@
 package com.uca.gui;
 
-import com.uca.core.UserCore;
+import com.uca.core.TeacherCore;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -11,17 +11,17 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserGUI {
+public class TeacherGUI { 
 
-    public static String getAllUsers() throws IOException, TemplateException {
+    public static String getAllStudents() throws IOException, TemplateException {
         Configuration configuration = _FreeMarkerInitializer.getContext();
 
         Map<String, Object> input = new HashMap<>();
 
-        input.put("users", UserCore.getAllUsers());
+        input.put("Students", TeacherCore.getAllStudents());
 
         Writer output = new StringWriter();
-        Template template = configuration.getTemplate("users/users.ftl");
+        Template template = configuration.getTemplate("teacher/students.ftl");
         template.setOutputEncoding("UTF-8");
         template.process(input, output);
 

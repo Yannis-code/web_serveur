@@ -11,13 +11,14 @@ public class _Initializer {
             PreparedStatement statement;
 
             //Init articles table
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS users (id int primary key auto_increment, firstname varchar(100), lastname varchar(100)); ");
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS students (id int primary key auto_increment, firstname varchar(100), lastname varchar(100), class varchar(100)); ");
             statement.executeUpdate();
 
             //Todo Remove me !
-            statement = connection.prepareStatement("INSERT INTO users(firstname, lastname) VALUES(?, ?);");
-            statement.setString(1, "Theodore");
-            statement.setString(2, "Muillerez");
+            statement = connection.prepareStatement("INSERT INTO students(firstname, lastname, class) VALUES(?, ?, ?);");
+            statement.setString(1, "Pierre");
+            statement.setString(2, "bouterige");
+            statement.setString(3, "prepisima");
             statement.executeUpdate();
 
         } catch (Exception e){
