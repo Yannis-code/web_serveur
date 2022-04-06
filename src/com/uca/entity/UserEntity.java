@@ -2,10 +2,11 @@ package com.uca.entity;
 
 import java.sql.Timestamp;
 
-public class UserEntity {
+public abstract class UserEntity {
     private String firstName;
     private String lastName;
-    private int id;
+    private Date birthdate;
+    // /age
 
     public UserEntity() {
         //Ignored !
