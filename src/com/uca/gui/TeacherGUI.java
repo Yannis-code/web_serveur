@@ -21,7 +21,7 @@ public class TeacherGUI {
         input.put("Students", TeacherCore.getAllStudents());
 
         Writer output = new StringWriter();
-        Template template = configuration.getTemplate("teacher/students.ftl");
+        Template template = configuration.getTemplate("user/user.ftl");
         template.setOutputEncoding("UTF-8");
         template.process(input, output);
 
