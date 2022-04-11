@@ -3,6 +3,7 @@ package com.uca.dao;
 import com.uca.entity.UserEntity;
 import com.uca.entity.TeacherEntity;
 import com.uca.entity.StudentEntity;
+import com.uca.entity.GommetteEntity;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,6 +11,26 @@ import java.util.ArrayList;
 public class StudentDAO extends _Generic<StudentEntity>{
 
     
+    public ArrayList<GommetteEntity> getAllGommettes() {
+        ArrayList<GommetteEntity> entities = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM gommettes ORDER BY id ASC;");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                GommetteEntity entity = new GommetteEntity();
+                entity.setId(resultSet.getInt("id"));
+                entity.setName(resultSet.getString("name"));
+                entity.setDesc(resultSet.getString("desc"));
+                entity.setColor(resultSet.getString("color"));
+
+                entities.add(entity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return entities;
+    }
 
     @Override
     public StudentEntity create(StudentEntity obj) {

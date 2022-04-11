@@ -19,5 +19,9 @@ public class StartServer {
         get("/students", (req, res) -> {
             return TeacherGUI.getAllStudents();
         });
+
+        get("/gommettes", (req, res) -> {
+            return StudentGUI.getAllGommettes();
+        });
     }
 }

@@ -6,7 +6,6 @@ public abstract class UserEntity {
     private String firstName;
     private String lastName;
 
-
     public UserEntity() {
         //Ignored !
     }
