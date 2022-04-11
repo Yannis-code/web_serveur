@@ -33,6 +33,13 @@ public class _Initializer {
             statement.setString(3, "verte");
             statement.executeUpdate();
 
+            statement = connection.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
+            statement.setString(1, "1");
+            statement.setString(2, "2");
+            statement.setString(3, "3");
+            statement.setString(4, "Belle bite.");
+            statement.executeUpdate();
+
         } catch (Exception e){
             System.out.println(e.toString());
             throw new RuntimeException("could not create database !");

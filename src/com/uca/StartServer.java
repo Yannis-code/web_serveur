@@ -23,5 +23,9 @@ public class StartServer {
         get("/gommettes", (req, res) -> {
             return StudentGUI.getAllGommettes();
         });
+
+        get("/students/:idStudent/gommettes", (req, res) -> {
+            return StudentGUI.getStudentGommettes(Integer.parseInt(req.params(":idStudent" )));
+        });
     }
 }
