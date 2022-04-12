@@ -39,7 +39,6 @@ public class StudentDAO extends _Generic<StudentEntity>{
         try {
             String query = "SELECT * FROM studentGommettes WHERE idStudent = " + Integer.toString(id) + " ORDER BY id ASC;";
             PreparedStatement preparedStatement = this.connect.prepareStatement(query);
-            System.out.println(preparedStatement);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 StudentGommetteEntity entity = new StudentGommetteEntity();
