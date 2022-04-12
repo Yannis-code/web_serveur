@@ -31,6 +31,35 @@ public class TeacherDAO extends _Generic<TeacherEntity>{
         return entities;
     }
 
+    public ArrayList<TeacherEntity> getAllTeachers() {
+        ArrayList<TeacherEntity> entities = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM teachers ORDER BY id ASC;");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                TeacherEntity entity = new TeacherEntity();
+                entity.setId(resultSet.getInt("id"));
+                entity.setFirstName(resultSet.getString("firstname"));
+                entity.setLastName(resultSet.getString("lastname"));
+                entity.setUsername(resultSet.getString("username"));
+
+                entities.add(entity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return entities;
+    }
+
+    public void deleteStudent(int id) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM students WHERE id = "+ Integer.toString(id) +";");
+            ResultSet resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public TeacherEntity create(TeacherEntity obj) {

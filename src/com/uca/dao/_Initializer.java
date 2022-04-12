@@ -38,30 +38,30 @@ public class _Initializer {
             // statement.executeUpdate();
 
             //Todo Remove me !
-            // statement = connection.prepareStatement("INSERT INTO students(firstname, lastname, class) VALUES(?, ?, ?);");
-            // statement.setString(1, "Pierre");
-            // statement.setString(2, "bouterige");
-            // statement.setString(3, "prepisima");
-            // statement.executeUpdate();
+            statement = connection.prepareStatement("INSERT INTO students(firstname, lastname, class) VALUES(?, ?, ?);");
+            statement.setString(1, "Pierre");
+            statement.setString(2, "bouterige");
+            statement.setString(3, "prepisima");
+            statement.executeUpdate();
 
-            // statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username) VALUES(?, ?, ?);");
-            // statement.setString(1, "Aurelie");
-            // statement.setString(2, "Lagoutte");
-            // statement.setString(3, "gougou");
-            // statement.executeUpdate();
+            statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username) VALUES(?, ?, ?);");
+            statement.setString(1, "Aurelie");
+            statement.setString(2, "Lagoutte");
+            statement.setString(3, "gougou");
+            statement.executeUpdate();
 
-            // statement = connection.prepareStatement("INSERT INTO gommettes (name, desc, color) VALUES(?, ?, ?);");
-            // statement.setString(1, "Travailleur");
-            // statement.setString(2, "excellent travail");
-            // statement.setString(3, "verte");
-            // statement.executeUpdate();
+            statement = connection.prepareStatement("INSERT INTO gommettes (name, desc, color) VALUES(?, ?, ?);");
+            statement.setString(1, "Travailleur");
+            statement.setString(2, "excellent travail");
+            statement.setString(3, "verte");
+            statement.executeUpdate();
 
-            // statement = connection.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
-            // statement.setString(1, "1");
-            // statement.setString(2, "1");
-            // statement.setString(3, "1");
-            // statement.setString(4, "Belle bite.");
-            // statement.executeUpdate();
+            statement = connection.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
+            statement.setString(1, "1");
+            statement.setString(2, "1");
+            statement.setString(3, "1");
+            statement.setString(4, "Belle bite.");
+            statement.executeUpdate();
 
         } catch (Exception e){
             System.out.println(e.toString());

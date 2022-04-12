@@ -25,7 +25,17 @@ public class StartServer {
         });
 
         get("/students/:idStudent/gommettes", (req, res) -> {
-            return StudentGUI.getStudentGommettes(Integer.parseInt(req.params(":idStudent" )));
+            return StudentGUI.getStudentGommettes(Integer.parseInt(req.params(":idStudent")));
         });
+
+        get("/teachers", (req, res) -> {
+            return TeacherGUI.getAllTeachers();
+        });
+
+        delete("/students/:idStudent", (req, res) -> {
+            return TeacherGUI.deleteStudent(Integer.parseInt(req.params(":idStudent")));
+        });
+
+
     }
 }
