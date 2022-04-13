@@ -73,5 +73,37 @@ public class StartServer {
             return null;
         });
 
+        get("/gommettes/:idGommette/delete", (req, res) -> {
+            GommetteCore.deleteGommette(Integer.parseInt(req.params(":idGommette")));
+            res.redirect("/gommettes");
+            return null;
+        });
+
+        get("/students/:idStudent/gommettes/:id/delete", (req, res) -> {
+            StudentGommetteCore.deleteStudentGommette(Integer.parseInt(req.params(":id")));
+            res.redirect("/students/" + req.params(":idStudent") + "/gommettes");
+            return null;
+        });
+
+        get("/studentGommettes", (req, res) -> {
+            return StudentGommetteGUI.getAllStudentGommettes();
+        });
+
+        get("/gommettes/:idGommette/delete", (req, res) -> {
+            GommetteCore.deleteGommette(Integer.parseInt(req.params(":idGommette")));
+            res.redirect("/gommettes");
+            return null;
+        });
+
+        get("/students/:idStudent/gommettes/:id/delete", (req, res) -> {
+            StudentGommetteCore.deleteStudentGommette(Integer.parseInt(req.params(":id")));
+            res.redirect("/students/" + req.params(":idStudent") + "/gommettes");
+            return null;
+        });
+
+        get("/studentGommettes", (req, res) -> {
+            return StudentGommetteGUI.getAllStudentGommettes();
+        });
+
     }
 }

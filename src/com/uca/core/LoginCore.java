@@ -14,9 +14,7 @@ public class LoginCore {
     public static boolean authentificate(String name, String pswr) {
         TeacherEntity teacher = TeacherCore.getTeacherByName(name);
         if (teacher != null) {
-            if (teacher.getUsername().equals(name) && teacher.getPassword().equals(pswr)) {
-                return true;
-            }
+            return teacher.getUsername().equals(name) && teacher.getPassword().equals(pswr);
         }
         return false;
     }

@@ -11,14 +11,14 @@ public class _Initializer {
             PreparedStatement statement;
 
             //Init articles table
-            // statement = connection.prepareStatement("DROP TABLE  studentGommettes IF EXISTS");
-            // statement.executeUpdate();
-            // statement = connection.prepareStatement("DROP TABLE  students IF EXISTS");
-            // statement.executeUpdate();
-            // statement = connection.prepareStatement("DROP TABLE  teachers IF EXISTS");
-            // statement.executeUpdate();
-            // statement = connection.prepareStatement("DROP TABLE  gommettes IF EXISTS");
-            // statement.executeUpdate();
+             statement = connection.prepareStatement("DROP TABLE  studentGommettes IF EXISTS");
+             statement.executeUpdate();
+             statement = connection.prepareStatement("DROP TABLE  students IF EXISTS");
+             statement.executeUpdate();
+             statement = connection.prepareStatement("DROP TABLE  teachers IF EXISTS");
+             statement.executeUpdate();
+             statement = connection.prepareStatement("DROP TABLE  gommettes IF EXISTS");
+             statement.executeUpdate();
 
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS students (id int primary key auto_increment, firstname varchar(100), lastname varchar(100), class varchar(100)); ");
             statement.executeUpdate();
@@ -57,12 +57,12 @@ public class _Initializer {
             statement.setString(3, "verte");
             statement.executeUpdate();
 
-            statement = connection.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
+            /*statement = connection.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
             statement.setString(1, "3");
             statement.setString(2, "2");
             statement.setString(3, "1");
             statement.setString(4, "Belle bite.");
-            statement.executeUpdate();
+            statement.executeUpdate();*/
 
         } catch (Exception e){
             System.out.println(e.toString());
