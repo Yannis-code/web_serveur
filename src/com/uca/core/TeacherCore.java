@@ -10,6 +10,10 @@ import java.util.ArrayList;
 
 public class TeacherCore {
 
+    public static TeacherEntity getTeacherByName(String name) {
+        return new TeacherDAO().getTeacherByName(name);
+    }
+
     public static ArrayList<StudentEntity> getAllStudents() {
         return new TeacherDAO().getAllStudents();
     }

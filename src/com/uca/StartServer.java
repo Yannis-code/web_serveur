@@ -37,6 +37,18 @@ public class StartServer {
             return StudentGUI.getLogin();
         });
 
+        post("/login", (req, res) -> {
+            String nameParam = req.queryParams("name");
+            String pswrParam = req.queryParams("password");
+            if(LoginCore.authentificate(nameParam, pswrParam)) {
+                req.session().attribute(nameParam, pswrParam);
+                res.redirect("/teachers");
+            } else {
+                res.redirect("/login");
+            }
+            return StudentGUI.getLogin();
+        });
+
         delete("/students", (req, res) -> {
             String test = req.queryParams("id");
             // System.out.println(test);
