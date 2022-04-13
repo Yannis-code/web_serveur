@@ -45,6 +45,37 @@ public class GommetteDAO extends _Generic<GommetteEntity>{
             e.printStackTrace();
         }
     }
+    
+
+    public void deleteGommette(int id) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM studentGommettes WHERE idGommette = "+ Integer.toString(id) +";");
+            preparedStatement.executeUpdate();
+            preparedStatement = this.connect.prepareStatement("DELETE FROM gommettes WHERE id = "+ Integer.toString(id) +";");
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public GommetteEntity getGommetteById(String id) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM gommettes WHERE id = ?;");
+            preparedStatement.setString(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                GommetteEntity entity = new GommetteEntity();
+                entity.setId(resultSet.getInt("id"));
+                entity.setName(resultSet.getString("name"));
+                entity.setDesc(resultSet.getString("desc"));
+                entity.setColor(resultSet.getString("color"));
+                return entity;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public GommetteEntity create(GommetteEntity obj) {

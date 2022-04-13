@@ -53,6 +53,26 @@ public class TeacherDAO extends _Generic<TeacherEntity>{
         return null;
     }
 
+    public TeacherEntity getTeacherById(String id) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM teachers WHERE id = ?;");
+            preparedStatement.setString(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                TeacherEntity entity = new TeacherEntity();
+                entity.setId(resultSet.getInt("id"));
+                entity.setFirstName(resultSet.getString("firstname"));
+                entity.setLastName(resultSet.getString("lastname"));
+                entity.setUsername(resultSet.getString("username"));
+                entity.setPassword(resultSet.getString("password"));
+                return entity;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     @Override
     public TeacherEntity create(TeacherEntity obj) {

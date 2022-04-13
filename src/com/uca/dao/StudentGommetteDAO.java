@@ -35,6 +35,38 @@ public class StudentGommetteDAO extends _Generic<StudentGommetteEntity>{
         return entities;
     }
 
+    public ArrayList<StudentGommetteEntity> getAllStudentGommettes() {
+        ArrayList<StudentGommetteEntity> entities = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM studentGommettes ORDER BY id ASC;";
+            PreparedStatement preparedStatement = this.connect.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                StudentGommetteEntity entity = new StudentGommetteEntity();
+                entity.setId(resultSet.getInt("id"));
+                entity.setIdGommette(resultSet.getInt("idGommette"));
+                entity.setIdStudent(resultSet.getInt("idStudent"));
+                entity.setIdTeacher(resultSet.getInt("idTeacher"));
+                entity.setReason(resultSet.getString("reason"));
+
+                entities.add(entity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return entities;
+    }
+
+    public void deleteStudentGommette(int id) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM studentGommettes WHERE id = "+ Integer.toString(id) +";");
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public StudentGommetteEntity create(StudentGommetteEntity obj) {
