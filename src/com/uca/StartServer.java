@@ -46,14 +46,14 @@ public class StartServer {
             } else {
                 res.redirect("/login");
             }
-            return StudentGUI.getLogin();
+            return TeacherGUI.getLogin();
         });
 
         get("/students/:idStudent/delete", (req, res) -> {
-                StudentCore.deleteStudent(Integer.parseInt(req.params(":idStudent")));
-                res.redirect("/students");
-                return null;
-            });
+            StudentCore.deleteStudent(Integer.parseInt(req.params(":idStudent")));
+            res.redirect("/students");
+            return null;
+        });
 
     }
 }
