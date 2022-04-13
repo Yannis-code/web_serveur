@@ -34,6 +34,18 @@ public class GommetteDAO extends _Generic<GommetteEntity>{
         return entities;
     }
 
+    public void createGommette(String name, String description, String color) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO gommettes (name, desc, color) VALUES(?, ?, ?);");
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, description);
+            preparedStatement.setString(3, color);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public GommetteEntity create(GommetteEntity obj) {
         //TODO !

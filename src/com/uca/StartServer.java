@@ -46,7 +46,25 @@ public class StartServer {
             } else {
                 res.redirect("/login");
             }
-            return TeacherGUI.getLogin();
+            return null;
+        });
+
+        post("/students", (req, res) -> {
+            String firstname = req.queryParams("firstname");
+            String lastname = req.queryParams("lastname");
+            String classroom = req.queryParams("classroom");
+            StudentCore.createStudent(firstname, lastname, classroom);
+            res.redirect("/students");
+            return null;
+        });
+
+        post("/gommettes", (req, res) -> {
+            String name = req.queryParams("name");
+            String description = req.queryParams("description");
+            String color = req.queryParams("color");
+            GommetteCore.createGommette(name, description, color);
+            res.redirect("/gommettes");
+            return null;
         });
 
         get("/students/:idStudent/delete", (req, res) -> {

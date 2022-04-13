@@ -11,6 +11,10 @@ import java.util.ArrayList;
 
 public class StudentCore {
 
+    public static void createStudent(String firstname, String lastname, String classroom) {
+        new StudentDAO().createStudent(firstname, lastname, classroom);
+    }
+
     public static void deleteStudent(int id) {
         new StudentDAO().deleteStudent(id);
     }

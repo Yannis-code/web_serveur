@@ -67,6 +67,18 @@ public class StudentDAO extends _Generic<StudentEntity>{
         }
     }
 
+    public void createStudent(String firstname, String lastname, String classroom) {
+        try {
+            PreparedStatement statement = this.connect.prepareStatement("INSERT INTO students(firstname, lastname, class) VALUES(?, ?, ?);");
+            statement.setString(1, firstname);
+            statement.setString(2, lastname);
+            statement.setString(3, classroom);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public StudentEntity create(StudentEntity obj) {
         //TODO !
