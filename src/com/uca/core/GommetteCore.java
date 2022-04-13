@@ -14,4 +14,8 @@ public class GommetteCore {
     public static ArrayList<GommetteEntity> getAllGommettes() {
         return new GommetteDAO().getAllGommettes();
     }
+
+    public static void deleteGommette(int id) {
+        new GommetteDAO().deleteGommette(id);
+    }
 }
