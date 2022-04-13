@@ -11,16 +11,11 @@ import java.util.ArrayList;
 
 public class StudentCore {
 
-    public static ArrayList<GommetteEntity> getAllGommettes() {
-        return new StudentDAO().getAllGommettes();
-    }
-
-    public static ArrayList<StudentGommetteEntity> getStudentGommettes(int id) {
-        return new StudentDAO().getStudentGommettes(id);
-    }
-
     public static void deleteStudent(int id) {
         new StudentDAO().deleteStudent(id);
     }
 
+    public static ArrayList<StudentEntity> getAllStudents() {
+        return new StudentDAO().getAllStudents();
+    }
 }

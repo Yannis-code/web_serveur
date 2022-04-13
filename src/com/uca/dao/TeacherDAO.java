@@ -10,26 +10,6 @@ import java.util.ArrayList;
 
 public class TeacherDAO extends _Generic<TeacherEntity>{
 
-    public ArrayList<StudentEntity> getAllStudents() {
-        ArrayList<StudentEntity> entities = new ArrayList<>();
-        try {
-            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Students ORDER BY id ASC;");
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                StudentEntity entity = new StudentEntity();
-                entity.setId(resultSet.getInt("id"));
-                entity.setFirstName(resultSet.getString("firstname"));
-                entity.setLastName(resultSet.getString("lastname"));
-                entity.setClassroom(resultSet.getString("class"));
-
-                entities.add(entity);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return entities;
-    }
 
     public ArrayList<TeacherEntity> getAllTeachers() {
         ArrayList<TeacherEntity> entities = new ArrayList<>();
@@ -42,6 +22,7 @@ public class TeacherDAO extends _Generic<TeacherEntity>{
                 entity.setFirstName(resultSet.getString("firstname"));
                 entity.setLastName(resultSet.getString("lastname"));
                 entity.setUsername(resultSet.getString("username"));
+                entity.setPassword(resultSet.getString("password"));
 
                 entities.add(entity);
             }

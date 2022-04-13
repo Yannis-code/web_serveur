@@ -18,15 +18,15 @@ public class StartServer {
 
         //Defining our routes
         get("/students", (req, res) -> {
-            return TeacherGUI.getAllStudents();
+            return StudentGUI.getAllStudents();
         });
 
         get("/gommettes", (req, res) -> {
-            return StudentGUI.getAllGommettes();
+            return GommetteGUI.getAllGommettes();
         });
 
         get("/students/:idStudent/gommettes", (req, res) -> {
-            return StudentGUI.getStudentGommettes(Integer.parseInt(req.params(":idStudent")));
+            return StudentGommetteGUI.getStudentGommettes(Integer.parseInt(req.params(":idStudent")));
         });
 
         get("/teachers", (req, res) -> {
@@ -34,7 +34,7 @@ public class StartServer {
         });
 
         get("/login", (req, res) -> {
-            return StudentGUI.getLogin();
+            return TeacherGUI.getLogin();
         });
 
         post("/login", (req, res) -> {
@@ -49,19 +49,11 @@ public class StartServer {
             return StudentGUI.getLogin();
         });
 
-        delete("/students", (req, res) -> {
-            String test = req.queryParams("id");
-            // System.out.println(test);
-            // TODO StudentCore
-            StudentCore.deleteStudent(Integer.parseInt(test));
-            // TeacherGUI.deleteStudent(Integer.parseInt(test));
-            // return TeacherGUI.getAllStudents();
-            return null;
-        });
-
-        // /students
-        // 
-
+        get("/students/:idStudent/delete", (req, res) -> {
+                StudentCore.deleteStudent(Integer.parseInt(req.params(":idStudent")));
+                res.redirect("/students");
+                return null;
+            });
 
     }
 }

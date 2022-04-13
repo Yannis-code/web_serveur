@@ -14,10 +14,6 @@ public class TeacherCore {
         return new TeacherDAO().getTeacherByName(name);
     }
 
-    public static ArrayList<StudentEntity> getAllStudents() {
-        return new TeacherDAO().getAllStudents();
-    }
-
     public static ArrayList<TeacherEntity> getAllTeachers() {
         return new TeacherDAO().getAllTeachers();
     }
