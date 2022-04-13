@@ -18,9 +18,4 @@ public class TeacherCore {
         return new TeacherDAO().getAllTeachers();
     }
 
-
-    public static void deleteStudent(int id) {
-        new TeacherDAO().deleteStudent(id);
-    }
-
 }

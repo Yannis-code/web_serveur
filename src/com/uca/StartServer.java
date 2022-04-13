@@ -2,6 +2,7 @@ package com.uca;
 
 import com.uca.dao._Initializer;
 import com.uca.gui.*;
+import com.uca.core.*;
 
 import static spark.Spark.*;
 
@@ -32,9 +33,22 @@ public class StartServer {
             return TeacherGUI.getAllTeachers();
         });
 
-        delete("/students/:idStudent", (req, res) -> {
-            return TeacherGUI.deleteStudent(Integer.parseInt(req.params(":idStudent")));
+        get("/login", (req, res) -> {
+            return StudentGUI.getLogin();
         });
+
+        delete("/students", (req, res) -> {
+            String test = req.queryParams("id");
+            // System.out.println(test);
+            // TODO StudentCore
+            StudentCore.deleteStudent(Integer.parseInt(test));
+            // TeacherGUI.deleteStudent(Integer.parseInt(test));
+            // return TeacherGUI.getAllStudents();
+            return null;
+        });
+
+        // /students
+        // 
 
 
     }

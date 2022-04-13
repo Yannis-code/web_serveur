@@ -52,14 +52,6 @@ public class TeacherDAO extends _Generic<TeacherEntity>{
         return entities;
     }
 
-    public void deleteStudent(int id) {
-        try {
-            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM students WHERE id = "+ Integer.toString(id) +";");
-            ResultSet resultSet = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public TeacherEntity create(TeacherEntity obj) {

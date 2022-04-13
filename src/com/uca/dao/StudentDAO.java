@@ -57,6 +57,16 @@ public class StudentDAO extends _Generic<StudentEntity>{
         return entities;
     }
 
+    public void deleteStudent(int id) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM students WHERE id = "+ Integer.toString(id) +";");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            System.out.println("oui");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public StudentEntity create(StudentEntity obj) {
         //TODO !

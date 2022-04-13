@@ -43,9 +43,4 @@ public class TeacherGUI {
         return output.toString();
     }
 
-    public static String deleteStudent(int id) throws IOException, TemplateException {
-        TeacherCore.deleteStudent(id);
-        return getAllStudents();
-    }
-
 }

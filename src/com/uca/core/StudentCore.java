@@ -19,4 +19,8 @@ public class StudentCore {
         return new StudentDAO().getStudentGommettes(id);
     }
 
+    public static void deleteStudent(int id) {
+        new StudentDAO().deleteStudent(id);
+    }
+
 }
