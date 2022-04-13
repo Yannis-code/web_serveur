@@ -8,14 +8,25 @@
     </#list>
 </ul>
 
-<form action="/students" method="delete" class="form-example">
-        <div class="form-example">
-            <label for="id">Entrez ID eleve à supprimer: </label>
-            <input type="text" name="id" id="id" required>
-        </div>
-        <div class="form-example">
-            <input type="submit" value="envoyer">
-        </div>
+<h1>Créer un étudiant</h1>
+<form action="/students" method="post" class="form-example">
+    <div class="form-example">
+        <label for="firstname">Entrez le prénom: </label>
+        <input type="text" name="firstname" id="firstname" required>
+    </div>
+    <div class="form-example">
+        <label for="lastname">Entrez le nom: </label>
+        <input type="text" name="lastname" id="lastname" required>
+    </div>
+    <div class="form-example">
+        <label for="classroom">Entrez la classe: </label>
+        <#select type="text" name="classroom" id="classroom" required classes as class>
+            <option value = "${class.classroom}">${class.classroom}</option>
+        </select>
+    </div>
+    <div class="form-example">
+        <input type="submit" value="Valider">
+    </div>
 </form>
 
 </body>

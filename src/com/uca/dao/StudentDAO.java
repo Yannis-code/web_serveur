@@ -58,10 +58,10 @@ public class StudentDAO extends _Generic<StudentEntity>{
             e.printStackTrace();
         }
     }
-    public StudentEntity getStudentById(String id) {
+    public StudentEntity getStudentById(int id) {
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM students WHERE id = ?;");
-            preparedStatement.setString(1, id);
+            preparedStatement.setString(1, Integer.toString(id));
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 StudentEntity entity = new StudentEntity();

@@ -29,4 +29,19 @@ public class GommetteGUI {
         return output.toString();
     }
 
+    public static String getAllGommettesTeacher() throws IOException, TemplateException {
+        Configuration configuration = _FreeMarkerInitializer.getContext();
+
+        Map<String, Object> input = new HashMap<>();
+
+        input.put("gommettes", GommetteCore.getAllGommettes());
+
+        Writer output = new StringWriter();
+        Template template = configuration.getTemplate("teachers/gommettes.ftl");
+        template.setOutputEncoding("UTF-8");
+        template.process(input, output);
+
+        return output.toString();
+    }
+
 }

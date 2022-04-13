@@ -25,6 +25,10 @@ public class StartServer {
             return GommetteGUI.getAllGommettes();
         });
 
+        get("/gommettes-teacher", (req, res) -> {
+            return GommetteGUI.getAllGommettesTeacher();
+        });
+
         get("/students/:idStudent/gommettes", (req, res) -> {
             return StudentGommetteGUI.getStudentGommettes(Integer.parseInt(req.params(":idStudent")));
         });
@@ -42,7 +46,7 @@ public class StartServer {
             String pswrParam = req.queryParams("password");
             if(LoginCore.authentificate(nameParam, pswrParam)) {
                 req.session().attribute(nameParam, pswrParam);
-                res.redirect("/teachers");
+                res.redirect("/loged");
             } else {
                 res.redirect("/login");
             }
@@ -58,12 +62,12 @@ public class StartServer {
             return null;
         });
 
-        post("/gommettes", (req, res) -> {
+        post("/gommettes-teacher", (req, res) -> {
             String name = req.queryParams("name");
             String description = req.queryParams("description");
             String color = req.queryParams("color");
             GommetteCore.createGommette(name, description, color);
-            res.redirect("/gommettes");
+            res.redirect("/gommettes-teacher");
             return null;
         });
 
@@ -104,6 +108,20 @@ public class StartServer {
         get("/studentGommettes", (req, res) -> {
             return StudentGommetteGUI.getAllStudentGommettes();
         });
+
+        get("/", (req, res) -> {
+            res.redirect("/index");
+            return null;
+        });
+
+        get("/index", (req, res) -> {
+            return IndexGUI.getIndex();
+        });
+
+        get("/loged", (req, res) -> {
+            return TeacherGUI.getLoged();
+        });
+
 
     }
 }

@@ -41,4 +41,17 @@ public class TeacherGUI {
         return template.toString();
     }
 
+    public static String getLoged() throws IOException, TemplateException {
+        Configuration configuration = _FreeMarkerInitializer.getContext();
+
+        Map<String, Object> input = new HashMap<>();
+
+        Writer output = new StringWriter();
+        Template template = configuration.getTemplate("teachers/loged.ftl");
+        template.setOutputEncoding("UTF-8");
+        template.process(input, output);
+
+        return template.toString();
+    }
+
 }

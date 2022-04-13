@@ -53,10 +53,10 @@ public class TeacherDAO extends _Generic<TeacherEntity>{
         return null;
     }
 
-    public TeacherEntity getTeacherById(String id) {
+    public TeacherEntity getTeacherById(int id) {
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM teachers WHERE id = ?;");
-            preparedStatement.setString(1, id);
+            preparedStatement.setString(1, Integer.toString(id));
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 TeacherEntity entity = new TeacherEntity();

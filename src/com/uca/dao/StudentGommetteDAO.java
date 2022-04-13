@@ -1,10 +1,8 @@
 package com.uca.dao;
 
-import com.uca.entity.UserEntity;
-import com.uca.entity.TeacherEntity;
-import com.uca.entity.StudentEntity;
-import com.uca.entity.GommetteEntity;
-import com.uca.entity.StudentGommetteEntity;
+import com.uca.entity.*;
+import com.uca.dao.*;
+
 
 
 import java.sql.*;
@@ -25,6 +23,10 @@ public class StudentGommetteDAO extends _Generic<StudentGommetteEntity>{
                 entity.setIdStudent(resultSet.getInt("idStudent"));
                 entity.setIdTeacher(resultSet.getInt("idTeacher"));
                 entity.setReason(resultSet.getString("reason"));
+                
+                entity.setTeacher(new TeacherDAO().getTeacherById(entity.getIdTeacher()));
+                entity.setStudent(new StudentDAO().getStudentById(entity.getIdStudent()));
+                entity.setGommette(new GommetteDAO().getGommetteById(entity.getIdGommette()));
 
                 entities.add(entity);
             }
@@ -48,6 +50,10 @@ public class StudentGommetteDAO extends _Generic<StudentGommetteEntity>{
                 entity.setIdStudent(resultSet.getInt("idStudent"));
                 entity.setIdTeacher(resultSet.getInt("idTeacher"));
                 entity.setReason(resultSet.getString("reason"));
+                
+                entity.setTeacher(new TeacherDAO().getTeacherById(entity.getIdTeacher()));
+                entity.setStudent(new StudentDAO().getStudentById(entity.getIdStudent()));
+                entity.setGommette(new GommetteDAO().getGommetteById(entity.getIdGommette()));
 
                 entities.add(entity);
             }

@@ -58,10 +58,10 @@ public class GommetteDAO extends _Generic<GommetteEntity>{
         }
     }
 
-    public GommetteEntity getGommetteById(String id) {
+    public GommetteEntity getGommetteById(int id) {
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM gommettes WHERE id = ?;");
-            preparedStatement.setString(1, id);
+            preparedStatement.setString(1, Integer.toString(id));
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 GommetteEntity entity = new GommetteEntity();
