@@ -42,6 +42,7 @@ public class TeacherDAO extends _Generic<TeacherEntity>{
                 entity.setFirstName(resultSet.getString("firstname"));
                 entity.setLastName(resultSet.getString("lastname"));
                 entity.setUsername(resultSet.getString("username"));
+                entity.setPassword(resultSet.getString("password"));
 
                 entities.add(entity);
             }

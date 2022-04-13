@@ -9,7 +9,7 @@
         </div>
         <div class="form-example">
             <label for="password">Entrez votre mot de passe: </label>
-            <input type="password" name="pswrd" id="password" required>
+            <input type="password" name="password" id="password" required>
         </div>
         <div class="form-example">
             <input type="submit" value="se connecter">

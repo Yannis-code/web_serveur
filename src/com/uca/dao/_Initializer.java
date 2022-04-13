@@ -22,7 +22,7 @@ public class _Initializer {
 
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS students (id int primary key auto_increment, firstname varchar(100), lastname varchar(100), class varchar(100)); ");
             statement.executeUpdate();
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS teachers (id int primary key auto_increment, firstname varchar(100), lastname varchar(100), username varchar(100)); ");
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS teachers (id int primary key auto_increment, firstname varchar(100), lastname varchar(100), username varchar(100), password varchar(100)); ");
             statement.executeUpdate();
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS gommettes (id int primary key auto_increment, name varchar(100), desc varchar(100), color varchar(100)); ");
             statement.executeUpdate();
@@ -38,30 +38,31 @@ public class _Initializer {
             // statement.executeUpdate();
 
             //Todo Remove me !
-            statement = connection.prepareStatement("INSERT INTO students(firstname, lastname, class) VALUES(?, ?, ?);");
-            statement.setString(1, "Pierre");
-            statement.setString(2, "bouterige");
-            statement.setString(3, "prepisima");
-            statement.executeUpdate();
+            // statement = connection.prepareStatement("INSERT INTO students(firstname, lastname, class) VALUES(?, ?, ?);");
+            // statement.setString(1, "Pierre");
+            // statement.setString(2, "bouterige");
+            // statement.setString(3, "prepisima");
+            // statement.executeUpdate();
 
-            statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username) VALUES(?, ?, ?);");
-            statement.setString(1, "Aurelie");
-            statement.setString(2, "Lagoutte");
-            statement.setString(3, "gougou");
-            statement.executeUpdate();
+            // statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username, password) VALUES(?, ?, ?, ?);");
+            // statement.setString(1, "Aurelie");
+            // statement.setString(2, "Lagoutte");
+            // statement.setString(3, "alagoutte");
+            // statement.setString(4, "oui");
+            // statement.executeUpdate();
 
-            statement = connection.prepareStatement("INSERT INTO gommettes (name, desc, color) VALUES(?, ?, ?);");
-            statement.setString(1, "Travailleur");
-            statement.setString(2, "excellent travail");
-            statement.setString(3, "verte");
-            statement.executeUpdate();
+            // statement = connection.prepareStatement("INSERT INTO gommettes (name, desc, color) VALUES(?, ?, ?);");
+            // statement.setString(1, "Travailleur");
+            // statement.setString(2, "excellent travail");
+            // statement.setString(3, "verte");
+            // statement.executeUpdate();
 
-            statement = connection.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
-            statement.setString(1, "1");
-            statement.setString(2, "1");
-            statement.setString(3, "1");
-            statement.setString(4, "Belle bite.");
-            statement.executeUpdate();
+            // statement = connection.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
+            // statement.setString(1, "1");
+            // statement.setString(2, "1");
+            // statement.setString(3, "1");
+            // statement.setString(4, "Belle bite.");
+            // statement.executeUpdate();
 
         } catch (Exception e){
             System.out.println(e.toString());
