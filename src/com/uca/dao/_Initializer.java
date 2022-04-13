@@ -59,7 +59,7 @@ public class _Initializer {
 
             // statement = connection.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
             // statement.setString(1, "1");
-            // statement.setString(2, "1");
+            // statement.setString(2, "2");
             // statement.setString(3, "1");
             // statement.setString(4, "Belle bite.");
             // statement.executeUpdate();
