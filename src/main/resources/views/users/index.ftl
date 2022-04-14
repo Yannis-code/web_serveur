@@ -10,6 +10,18 @@
         <li><a href="/studentGommettes">Liste des gommettes de chaque élève</a></li>
     </ul>
 
+    <h2> Consulter les gommettes d'un élève en particulier : </h2>
+
+    <form action="/students/gommettes" method="post">
+        <select type="text" name="id" id="id" required>
+            <#list students as student>
+                <option value = "${student.id}">${student.id} - ${student.firstName} ${student.lastName}</option>
+            </#list>
+        </select>
+        <input type="submit" value="Valider">
+
+    </form>
+
 </body>
 
 </html>

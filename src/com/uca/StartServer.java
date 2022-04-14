@@ -122,6 +122,20 @@ public class StartServer {
             return TeacherGUI.getLoged();
         });
 
+        post("/students/gommettes", (req, res) -> {
+            String idStudent = req.queryParams("id");
+            res.redirect("/students/" + idStudent + "/gommettes");
+            return null;
+        });
+
+        post("/students/gommettes/add", (req, res) -> {
+            String idStudent = req.queryParams("idStudent");
+            String idGommette = req.queryParams("idGommette");
+            String reason = req.queryParams("reason");
+            StudentGommetteCore.createStudentGommette( "1" ,idStudent, idGommette, reason);
+            res.redirect("/loged");
+            return null;
+        });
 
     }
 }

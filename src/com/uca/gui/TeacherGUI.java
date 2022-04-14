@@ -1,6 +1,6 @@
 package com.uca.gui;
 
-import com.uca.core.TeacherCore;
+import com.uca.core.*;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -46,12 +46,15 @@ public class TeacherGUI {
 
         Map<String, Object> input = new HashMap<>();
 
+        input.put("students", StudentCore.getAllStudents());
+        input.put("gommettes", GommetteCore.getAllGommettes());
+
         Writer output = new StringWriter();
         Template template = configuration.getTemplate("teachers/loged.ftl");
         template.setOutputEncoding("UTF-8");
         template.process(input, output);
 
-        return template.toString();
+        return output.toString();
     }
 
 }

@@ -22,4 +22,8 @@ public class StudentGommetteCore {
     public static void deleteStudentGommette(int id) {
         new StudentGommetteDAO().deleteStudentGommette(id);
     }
+
+    public static void createStudentGommette(String idTeacher, String idStudent, String idGommette, String reason) {
+        new StudentGommetteDAO().createStudentGommette(idTeacher, idStudent, idGommette, reason);
+    }
 }

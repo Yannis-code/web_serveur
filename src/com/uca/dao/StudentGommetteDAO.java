@@ -64,6 +64,19 @@ public class StudentGommetteDAO extends _Generic<StudentGommetteEntity>{
         return entities;
     }
 
+    public void createStudentGommette(String idTeacher, String idStudent, String idGommette, String reason) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO studentGommettes (idGommette, idStudent, idTeacher, reason) VALUES(?, ?, ?, ?);");
+            preparedStatement.setString(1, idGommette);
+            preparedStatement.setString(2, idStudent);
+            preparedStatement.setString(3, idTeacher);
+            preparedStatement.setString(4, reason);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void deleteStudentGommette(int id) {
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM studentGommettes WHERE id = "+ Integer.toString(id) +";");

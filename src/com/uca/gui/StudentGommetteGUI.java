@@ -1,6 +1,7 @@
 package com.uca.gui;
 
-import com.uca.core.StudentGommetteCore;
+import com.uca.core.*;
+import com.uca.dao.*;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -19,9 +20,10 @@ public class StudentGommetteGUI {
         Map<String, Object> input = new HashMap<>();
 
         input.put("studentGommettes", StudentGommetteCore.getStudentGommettes(id));
+        input.put("particularStudent", new StudentDAO().getStudentById(id));
 
         Writer output = new StringWriter();
-        Template template = configuration.getTemplate("users/studentGommettes.ftl");
+        Template template = configuration.getTemplate("users/studentGommettesID.ftl");
         template.setOutputEncoding("UTF-8");
         template.process(input, output);
 

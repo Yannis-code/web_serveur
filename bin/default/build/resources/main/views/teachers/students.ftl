@@ -11,16 +11,20 @@
 <h1>Créer un étudiant</h1>
 <form action="/students" method="post" class="form-example">
     <div class="form-example">
-        <label for="name">Entrez le prénom: </label>
+        <label for="firstname">Entrez le prénom: </label>
         <input type="text" name="firstname" id="firstname" required>
     </div>
     <div class="form-example">
-        <label for="name">Entrez le nom: </label>
+        <label for="lastname">Entrez le nom: </label>
         <input type="text" name="lastname" id="lastname" required>
     </div>
     <div class="form-example">
-        <label for="name">Entrez la classe: </label>
-        <input type="text" name="classroom" id="classroom" required>
+        <label for="classroom">Entrez la classe: </label>
+        <select type="text" name="classroom" id="classroom" required>
+            <#list classes as class>
+                <option value = "${class.classroom}">${class.classroom}</option>
+            </#list>
+        </select>
     </div>
     <div class="form-example">
         <input type="submit" value="Valider">

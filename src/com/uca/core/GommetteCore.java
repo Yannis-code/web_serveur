@@ -19,6 +19,7 @@ public class GommetteCore {
     public static void createGommette(String name, String description, String color) {
         new GommetteDAO().createGommette(name, description, color);
     }
+    
     public static void deleteGommette(int id) {
         new GommetteDAO().deleteGommette(id);
     }

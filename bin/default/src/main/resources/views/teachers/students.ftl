@@ -20,8 +20,10 @@
     </div>
     <div class="form-example">
         <label for="classroom">Entrez la classe: </label>
-        <#select type="text" name="classroom" id="classroom" required classes as class>
-            <option value = "${class.classroom}">${class.classroom}</option>
+        <select type="text" name="classroom" id="classroom" required>
+            <#list classes as class>
+                <option value = "${class.classroom}">${class.classroom}</option>
+            </#list>
         </select>
     </div>
     <div class="form-example">
