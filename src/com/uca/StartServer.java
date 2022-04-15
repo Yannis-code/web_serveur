@@ -79,7 +79,7 @@ public class StartServer {
 
         get("/gommettes/:idGommette/delete", (req, res) -> {
             GommetteCore.deleteGommette(Integer.parseInt(req.params(":idGommette")));
-            res.redirect("/gommettes");
+            res.redirect("/gommettes-teacher");
             return null;
         });
 
@@ -134,6 +134,16 @@ public class StartServer {
             String reason = req.queryParams("reason");
             StudentGommetteCore.createStudentGommette( "1" ,idStudent, idGommette, reason);
             res.redirect("/loged");
+            return null;
+        });
+
+        post("/gommettes-teacher/patch", (req, res) -> {
+            String ID = req.queryParams("id");
+            String name = req.queryParams("name");
+            String description = req.queryParams("description");
+            String color = req.queryParams("color");
+            GommetteCore.modifyGommette(ID, name, description, color);
+            res.redirect("/gommettes-teacher");
             return null;
         });
 

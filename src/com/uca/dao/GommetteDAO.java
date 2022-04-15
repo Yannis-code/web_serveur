@@ -45,6 +45,20 @@ public class GommetteDAO extends _Generic<GommetteEntity>{
             e.printStackTrace();
         }
     }
+
+    public void modifyGommette(String ID, String name, String description, String color) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("UPDATE gommettes SET name = ?, desc = ?, color = ? WHERE id = ?;");
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, description);
+            preparedStatement.setString(3, color);
+            preparedStatement.setString(4, ID);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
 
     public void deleteGommette(int id) {
