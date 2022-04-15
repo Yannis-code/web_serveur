@@ -39,7 +39,7 @@ public class StudentDAO extends _Generic<StudentEntity>{
             PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM studentGommettes WHERE idStudent = ?;");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
-            preparedStatement = this.connect.prepareStatement("DELETE FROM students WHERE id = = ?;");
+            preparedStatement = this.connect.prepareStatement("DELETE FROM students WHERE id = ?;");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -58,6 +58,21 @@ public class StudentDAO extends _Generic<StudentEntity>{
             e.printStackTrace();
         }
     }
+
+    public void modifyStudent(String ID, String firstname, String lastname, String classroom) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("UPDATE students SET class = ?, firstname = ?, lastname = ? WHERE id = ?;");
+            preparedStatement.setString(1, classroom);
+            preparedStatement.setString(2, firstname);
+            preparedStatement.setString(3, lastname);
+            preparedStatement.setString(4, ID);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public StudentEntity getStudentById(int id) {
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM students WHERE id = ?;");

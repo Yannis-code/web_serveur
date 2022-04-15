@@ -147,5 +147,16 @@ public class StartServer {
             return null;
         });
 
+        post("/students/patch", (req, res) -> {
+            String ID = req.queryParams("idStudent");
+            String firstname = req.queryParams("firstname");
+            String lastname = req.queryParams("lastname");
+            String classroom = req.queryParams("classroom");
+            StudentCore.modifyStudent(ID, firstname, lastname, classroom);
+            res.redirect("/students");
+            return null;
+        });
+
+
     }
 }

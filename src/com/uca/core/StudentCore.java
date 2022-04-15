@@ -15,6 +15,10 @@ public class StudentCore {
         new StudentDAO().createStudent(firstname, lastname, classroom);
     }
 
+    public static void modifyStudent(String ID, String firstname, String lastname, String classroom) {
+        new StudentDAO().modifyStudent(ID, firstname, lastname, classroom);
+    }
+
     public static void deleteStudent(int id) {
         new StudentDAO().deleteStudent(id);
     }
